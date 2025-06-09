@@ -1,0 +1,7 @@
+# requirements-cicd.txt
+# This file lists developer tools used in CI/CD for code quality, testing, and security checks.
+
+black          # Code formatter to enforce consistent Python code style
+pytest         # Test runner for discovering and running unit and integration tests
+bandit         # Static analyzer for finding common security issues in Python code
+pip-audit      # Scans Python dependencies for known vulnerabilities
