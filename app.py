@@ -1,7 +1,7 @@
 # app.py
 
 def main():
-    print("Hello, DevOps")
+    print("Hello, CI/CD")
 
 if __name__ == "__main__":
     main()
