@@ -34,19 +34,18 @@ jobs:
             exit 1 # ⛔ This will stop the workflow if issues are found
           fi
 
-        - name: Run pip-audit on project dependencies (continue on failure)
-          continue-on-error: true
-          run: |
-            pip-audit -r requirements.txt -f json -o pip-audit-output.json
-            count=$(jq '. | length' pip-audit-output.json)
-            echo "pip-audit found $count vulnerability(ies)"
-            echo "## 🐍 pip-audit Results" >> $GITHUB_STEP_SUMMARY
-            echo "Found $count vulnerability(ies)" >> $GITHUB_STEP_SUMMARY
+      - name: Run pip-audit on project dependencies (continue on failure)
+        continue-on-error: true
+        run: |
+          pip-audit -r requirements.txt -f json -o pip-audit-output.json
+          count=$(jq '. | length' pip-audit-output.json)
+          echo "pip-audit found $count vulnerability(ies)"
+          echo "## 🐍 pip-audit Results" >> $GITHUB_STEP_SUMMARY
+          echo "Found $count vulnerability(ies)" >> $GITHUB_STEP_SUMMARY
 
-            if [ "$count" -gt 0 ]; then
-              echo "::warning::pip-audit found $count vulnerability(ies)!"
-            fi
-
+          if [ "$count" -gt 0 ]; then
+            echo "::warning::pip-audit found $count vulnerability(ies)!"
+          fi
 
       - name: Make test.sh executable
         run: chmod +x ./test.sh
