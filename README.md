@@ -1,3 +1,5 @@
+### Mamram rules
+
 # 🚀 CI Pipeline with GitHub Actions
 
 This project includes a minimal **CI workflow** using **GitHub Actions** that runs a custom shell script (`test.sh`) on every code push.
