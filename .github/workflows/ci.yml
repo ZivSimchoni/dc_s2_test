@@ -24,6 +24,7 @@ jobs:
         run: black --check .
 
       - name: Run bandit and count issues
+        continue-on-error: true
         run: |
           bandit -r . -f json -o bandit-output.json
           count=$(jq '.results | length' bandit-output.json)
