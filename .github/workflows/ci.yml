@@ -13,7 +13,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: |
@@ -46,6 +46,7 @@ jobs:
           if [ "$count" -gt 0 ]; then
             echo "::warning::pip-audit found $count vulnerability(ies)!"
           fi
+
 
       - name: Make test.sh executable
         run: chmod +x ./test.sh
