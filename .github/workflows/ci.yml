@@ -44,10 +44,6 @@ jobs:
           echo "## 🐍 pip-audit Results" >> $GITHUB_STEP_SUMMARY
           echo "Found $count vulnerability(ies)" >> $GITHUB_STEP_SUMMARY
 
-          if [ "$count" -gt 0 ]; then
-            echo "::warning::pip-audit found $count vulnerability(ies)!"
-          fi
-
 
       - name: Make test.sh executable
         run: chmod +x ./test.sh
